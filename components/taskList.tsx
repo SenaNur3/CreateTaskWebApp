@@ -76,12 +76,16 @@ const TaskList = ({ task, setTask }: any) => {
       title: 'Görev Adı',
       dataIndex: 'name',
       key: 'name',
+      defaultSortOrder: 'ascend',
+      sorter: (a, b) => a.name.localeCompare(b.name),
       render: (text) => <a>{text}</a>,
+      width: '788px',
     },
     {
       title: 'Öncelik',
       key: 'priority',
       dataIndex: 'priority',
+      width: '206px',
       render: (priority) => (
         <>
           <Tag color={getTagColor(priority)} style={{
@@ -99,6 +103,7 @@ const TaskList = ({ task, setTask }: any) => {
     {
       title: 'İşlem',
       key: 'action',
+      width: '206px',
       render: (_, record) => (
         <Space size="middle">
           <a onClick={() => showModal(record)}>
@@ -171,11 +176,12 @@ const TaskList = ({ task, setTask }: any) => {
             Table: {
               headerBg: '#FAFAFA',
               headerColor: '#3981F6',
+              rowHoverBg:'#fff'
             },
           },
         }}
       >
-        <Table columns={columns} dataSource={tableData} />
+        <Table columns={columns} dataSource={tableData}  bordered   pagination={false} />
       </ConfigProvider>
       <UpdateModal isModalOpen={isModalOpen} handleOk={handleOk} handleCancel={handleCancel} setEditingTask={setEditingTask} editingTask={editingTask} />
     </div>

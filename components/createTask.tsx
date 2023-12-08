@@ -54,6 +54,7 @@ const CreateTask = ({ setTask }: any) => {
               placeholder="Seçiniz"
               className="w-[288px]"
               onChange={handleMenuClick}
+              defaultValue={pre} 
               options={[
                 { value: 'Yüksek', label: 'Yüksek' },
                 { value: 'Orta', label: 'Orta' },

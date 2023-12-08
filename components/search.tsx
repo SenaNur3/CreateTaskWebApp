@@ -33,6 +33,7 @@ export const Search = ({setSearchText,handleChangePriorities }:any) => {
       placeholder="Öncelikleri Seçiniz"
       onChange={handleChangePriorities}
       options={options}
+      removeIcon
     />
   </div>
   )

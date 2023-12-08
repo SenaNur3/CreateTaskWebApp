@@ -42,7 +42,7 @@ const UpdateModal = ({isModalOpen,handleOk,handleCancel,setEditingTask,editingTa
 
     <div className='text-[#2B2F37] text-[15px] mb-[6px]'>Görev Önceligi</div>
     <Select
-      style={{ width: '100%', maxWidth: '385px' }}
+      style={{ width: '100%' }}
       placeholder="Öncelikleri Seçiniz"
       onChange={(value) => updatePriority(value)}
       options={options}

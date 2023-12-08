@@ -1,5 +1,6 @@
 "use client"
 import CreateTask from '@/components/createTask';
+import Footer from '@/components/footer';
 import TaskList from '@/components/taskList';
 import Image from 'next/image'
 import { useEffect, useState } from 'react';
@@ -32,6 +33,7 @@ export default function Home() {
         </header>
         <CreateTask setTask={setTask} />
         <TaskList setTask={setTask} task={task}/>
+        <Footer/>
       </div>
     </main>
   )

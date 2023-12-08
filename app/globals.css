@@ -30,7 +30,7 @@
   background-color: #ff6f09;
   color: #fff6ef;
 }
-.ant-space-item .ant-btn-default{
+.ant-space-item .ant-btn-default {
   border: none;
   box-shadow: none;
   padding: 0;
@@ -40,24 +40,23 @@
   align-items: baseline;
 }
 
-
-
-.ant-table-cell .ant-space{
+.ant-table-cell .ant-space {
   display: flex;
   justify-content: space-around;
+  align-items: baseline;
 }
 .ant-popconfirm-inner-content .ant-popconfirm-buttons {
   display: flex;
   justify-content: space-between;
 }
 
-.ant-popconfirm-inner-content .ant-popconfirm-buttons .ant-btn-default{
+.ant-popconfirm-inner-content .ant-popconfirm-buttons .ant-btn-default {
   background-color: #fff6ef;
   color: #ff6f09;
   width: 110px;
   border-color: #fff6ef;
 }
-.ant-popconfirm-inner-content .ant-popconfirm-buttons .ant-btn-primary{
+.ant-popconfirm-inner-content .ant-popconfirm-buttons .ant-btn-primary {
   width: 110px;
   background-color: #ff6f09;
   color: #fff6ef;
@@ -65,8 +64,62 @@
 .ant-popconfirm-inner-content .ant-popconfirm-buttons .ant-btn-primary:hover {
   background-color: #ff6f09;
 }
-.ant-popconfirm-inner-content .ant-popconfirm-buttons .ant-btn-default:hover{
+.ant-popconfirm-inner-content .ant-popconfirm-buttons .ant-btn-default:hover {
   background-color: #fff6ef;
   border-color: #fff6ef;
   color: #ff6f09;
+}
+.ant-table-wrapper .ant-table-column-sorter {
+  display: none;
+}
+.ant-table-wrapper td.ant-table-column-sort  {
+  background-color: #ffffff !important;
+}
+
+.ant-table-wrapper .ant-table-thead th.ant-table-column-sort{
+  background: #fafafa !important;
+
+  
+}
+.ant-select-multiple .ant-select-selection-item[title="Yüksek"] {
+  display: flex;
+  justify-content: center;
+  background-color: #fcdcdc;
+  color: #bc1919;
+  box-shadow: 0px 0.83px 1.66px 0px rgba(16, 24, 40, 0.05);
+  width: 100px;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px; /* 137.5% */
+  letter-spacing: 0.08px;
+}
+.ant-select-multiple .ant-select-selection-item[title="Orta"] {
+  display: flex;
+  justify-content: center;
+  background-color: #fffadb;
+  width: 100px;
+  color: #998200;
+  box-shadow: 0px 0.83px 1.66px 0px rgba(16, 24, 40, 0.05);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px; /* 137.5% */
+  letter-spacing: 0.08px;
+}
+.ant-select-multiple .ant-select-selection-item[title="Düşük"] {
+  display: flex;
+  justify-content: center;
+  background-color: #dfeafe;
+  width: 100px;
+  color: #20509e;
+  box-shadow: 0px 0.83px 1.66px 0px rgba(16, 24, 40, 0.05);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px; /* 137.5% */
+  letter-spacing: 0.08px;
 }
