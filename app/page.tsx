@@ -25,7 +25,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main>
+    <main className='flex justify-center'>
       <div className='w-full max-w-[1440px] pt-[40px] pr-[120px] pb-0 pl-[120px] flex justify-center flex-col md:pl-[60px] md:pr-[60px]'>
         <header className='flex  flex-col'>
           <Image src="/logo.png" width={210} height={120} alt='logo' className='mb-[40px]' />
