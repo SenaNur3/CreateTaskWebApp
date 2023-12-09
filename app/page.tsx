@@ -8,7 +8,8 @@ import styled from "styled-components";
 
 const Divider = styled.div`
 background: var(--gray-300, #B4B6BB);
-width: 1200px;
+max-width:1200px;
+width: 100%;
 height: 3px;
 `
 
@@ -23,10 +24,9 @@ export default function Home() {
     }
   }, []);
 
-  console.log("task",task)
   return (
     <main>
-      <div className='w-full max-w-[1440px] pt-[40px] pr-[120px] pb-0 pl-[120px] flex justify-center flex-col'>
+      <div className='w-full max-w-[1440px] pt-[40px] pr-[120px] pb-0 pl-[120px] flex justify-center flex-col md:pl-[60px] md:pr-[60px]'>
         <header className='flex  flex-col'>
           <Image src="/logo.png" width={210} height={120} alt='logo' className='mb-[40px]' />
           <Divider />

@@ -19,19 +19,19 @@ const TaskList = ({ task, setTask }: any) => {
   const [editingTask, setEditingTask] = useState<TaskType>();
   const [tableData, setTableData] = React.useState<TaskType[]>([]);
 
-  
- 
+
+
   const confirm = (key: string) => {
     const updatedTask = task.filter((item: TaskType, index: number) => index.toString() !== key);
     setTask(updatedTask);
     setTableData(updatedTask);
     message.success('Görev silindi');
-  
+
     // Local storage'dan görevi silme
     const existingTasks = localStorage.getItem('tasks');
     if (existingTasks) {
       const parsedExistingTasks: TaskType[] = JSON.parse(existingTasks);
-      const updatedTasks = parsedExistingTasks.filter((item ,index: number) => index.toString() !== key);
+      const updatedTasks = parsedExistingTasks.filter((item, index: number) => index.toString() !== key);
       localStorage.setItem('tasks', JSON.stringify(updatedTasks));
     }
   };
@@ -47,7 +47,7 @@ const TaskList = ({ task, setTask }: any) => {
   const handleOk = () => {
     if (editingTask) {
       // Task listesinde güncellenen görevin index'ini bul
-      const updatedTaskIndex = task.findIndex((item: TaskType,index:number) => index.toString() === editingTask.key);
+      const updatedTaskIndex = task.findIndex((item: TaskType, index: number) => index.toString() === editingTask.key);
 
       // Task listesinde güncellenen görevi değiştir
       const updatedTaskList = [...task];
@@ -59,8 +59,8 @@ const TaskList = ({ task, setTask }: any) => {
       // Local storage'da da güncelle
       localStorage.setItem('tasks', JSON.stringify(updatedTaskList));
     }
-   setIsModalOpen(false);
-   
+    setIsModalOpen(false);
+
   };
   const handleCancel = () => {
     setIsModalOpen(false);
@@ -107,18 +107,20 @@ const TaskList = ({ task, setTask }: any) => {
       render: (_, record) => (
         <Space size="middle">
           <a onClick={() => showModal(record)}>
-            <Image src="/Edit.svg" alt="edit" width={15} height={15} />
+            <div className='edit-button'/>
           </a>
           <Popconfirm
             title="Uyarı"
             description="Görevi silmek istediginize emin misiniz ? "
-            onConfirm={()=>confirm(record.key)}
+            onConfirm={() => confirm(record.key)}
             onCancel={cancel}
             okText="Evet"
             cancelText="Hayır"
           >
             <Button>
-              <Image src="/Trash.svg" alt="edit" width={15} height={15} />
+              <div
+                className='trash-button'
+              />
             </Button>
           </Popconfirm>
 
@@ -126,6 +128,7 @@ const TaskList = ({ task, setTask }: any) => {
       ),
     },
   ];
+
   const getTagColor = (priority: string) => {
     switch (priority) {
       case 'Yüksek':
@@ -151,11 +154,10 @@ const TaskList = ({ task, setTask }: any) => {
     }
   };
 
-
   useEffect(() => {
     const filteredData = task
-    .filter((item: TaskType) => (!searchText || item?.name?.includes(searchText)))
-    .filter((item: TaskType) => selectedPriorities.length === 0 || selectedPriorities.includes(item.priority));
+      .filter((item: TaskType) => (!searchText || item?.name?.includes(searchText)))
+      .filter((item: TaskType) => selectedPriorities.length === 0 || selectedPriorities.includes(item.priority));
 
     setTableData(
       filteredData.map((item: { name: string; priority: string }, index: number) => ({
@@ -169,19 +171,19 @@ const TaskList = ({ task, setTask }: any) => {
   return (
     <div className="mt-[66px]">
       <div className="text-[31px] font-medium leading-[38px] text-[#363A45] mb-[20px]">Görev Listesi</div>
-      <Search setSearchText={setSearchText}  handleChangePriorities={handleChangePriorities}/>
+      <Search setSearchText={setSearchText} handleChangePriorities={handleChangePriorities} />
       <ConfigProvider
         theme={{
           components: {
             Table: {
               headerBg: '#FAFAFA',
               headerColor: '#3981F6',
-              rowHoverBg:'#fff'
+              rowHoverBg: '#fff'
             },
           },
         }}
       >
-        <Table columns={columns} dataSource={tableData}  bordered   pagination={false} />
+        <Table columns={columns} dataSource={tableData} bordered pagination={false} />
       </ConfigProvider>
       <UpdateModal isModalOpen={isModalOpen} handleOk={handleOk} handleCancel={handleCancel} setEditingTask={setEditingTask} editingTask={editingTask} />
     </div>
